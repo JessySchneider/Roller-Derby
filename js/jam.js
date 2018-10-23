@@ -1,6 +1,7 @@
 
 var joueuses = document.querySelectorAll('.joueuse');
-var jamEnCoursDom = document.querySelector('.joueuses-en-jam');
+var blockerOnJam = document.querySelector('.joueuses-en-jam>.container-blocker');
+var jammerOnJam = document.querySelector('.joueuses-en-jam>.container-jammer');
 var listeJoueuses = document.querySelector('.liste-joueuses');
 var affichageMessageDom = document.querySelector('.message');
 var containerMessageDom = document.querySelector('#message-container');
@@ -18,11 +19,21 @@ joueuses.forEach(function(joueuse) {
 });
 
 
-
 function addJoueuseToJam(joueuse){
     if(!isJamFull()){
-        jamEnCoursDom.append(joueuse);
-        joueuse.isOnJam = true;
+        if(!isBlockerFull()){
+            blockerOnJam.append(joueuse);
+            joueuse.classList.add("blocker");
+            joueuse.isOnJam = true;
+            joueuse.role = "blocker";
+        }else{
+            if(!isJammerFull()){
+                jammerOnJam.append(joueuse);
+                joueuse.classList.add("jammer");
+                joueuse.isOnJam = true;
+                joueuse.role = "jammer";
+            }
+        }    
     }else{
         printMessage("Nombres maximum de joueuses atteint");
     }
@@ -30,14 +41,30 @@ function addJoueuseToJam(joueuse){
 }
 
 function removeJoueuseFromJam(joueuse){  
-    console.log("Remove");
-    listeJoueuses.append(joueuse);   
+    listeJoueuses.append(joueuse);
+    joueuse.isOnJam = false;  
 }
 
 function isJamFull(){
-    if(jamEnCoursDom.childNodes.length > 5){
+    if(isBlockerFull() && isJammerFull()){
         return true;
     }else{
+        return false;
+    }
+}
+
+function isBlockerFull(){
+    if(blockerOnJam.childElementCount >= 4){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+function isJammerFull(){
+    if(jammerOnJam.childElementCount >= 1){
+        return true;
+    }else {
         return false;
     }
 }

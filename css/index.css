@@ -66,49 +66,96 @@ button:hover{
     float:right;
 }
 
+.title-role{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.title-role>h3{
+    margin: inherit;
+}
+
+.title-role>h3:nth-child(1){
+    background-color: red;
+    width: 80%;
+}
+.title-role>h3:nth-child(2){
+    background-color: blue;
+    width: 20%;
+}
+
 .joueuses-en-jam{
     display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-content: center;
-    background-color: gray;
-    padding:20px;
-    height:60px;
+    /* justify-content: center; */
+    width: 70%;
+    margin: 0 auto;
+    /* height:60px; */
 }
 
-.joueuses-en-jam>.joueuse:nth-child(5){
-    background-color: yellow !important;
+.joueuses-en-jam>.container-blocker, .joueuses-en-jam>.container-jammer{
+    display: flex;
+
 }
 
+.joueuses-en-jam>.container-blocker{
+    background-color: rgba(77, 18, 18,0.3);
+    justify-content: space-around;
+    align-content: flex-start;
+    width: 80%;
+}
+
+.joueuses-en-jam>.container-blocker>.blocker{
+    background-color: rgba(77, 18, 18);
+    transition: all 0.3 ease-in;
+}
+
+.joueuses-en-jam>.container-blocker>.blocker:hover{
+    cursor:pointer;
+    background-color: rgb(48, 3, 3);
+
+}
+
+
+.joueuses-en-jam>.container-jammer{
+    background-color:rgb(21, 64, 184,0.3);
+    width: 20%;
+}
+
+.joueuses-en-jam>.container-jammer>.jammer{
+    background-color:rgb(21, 64, 184);
+    transition: all 0.3s ease-out
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 .joueuse{
     padding:10px;
     font-size: 1.2rem;
     color:white;
-    width: 15%;
-    border-radius: 5px;
-    margin: 0 5px;
-    background-color: black;
-    display: flex;
     position: relative;
 }
 
-
-.role-blocker{
-    background-color: green;
-}
-
-.role-jammer{
-    background-color: coral;
-}
 
 .liste-joueuses{
     display: flex;
     margin-top:30px;
     flex-wrap: wrap;
+    display: flex;
     justify-content: center;
 }
 
 .liste-joueuses .joueuse{
     margin-top:10px;
+    width: 15%;
+    background-color:  rgb(54, 182, 22);
+    margin: 10px 5px;
+    transition: all 0.3s ease-in;
+}
+
+.liste-joueuses .joueuse:hover{
+    background-color: rgb(33, 124, 11);
+    cursor: pointer;
 }
 
