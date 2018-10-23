@@ -1,0 +1,114 @@
+body{
+    max-width: 1280px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+h1{
+    text-align: center;
+}
+
+.menu-principal{
+    display: flex;
+    flex-direction: column;
+
+}
+
+button{
+    padding: 20px;
+    color:white;
+    background-color: cornflowerblue;
+    border:inherit;
+    font-weight: bold;
+    transition:all 0.3s ease-out;
+    width: 80%;
+    margin:10px auto;
+    cursor: pointer;
+    text-shadow:1px 1px 2px black;
+    font-size:1.5rem;
+}
+
+button:hover{
+    background-color: #1b65ea;
+}
+
+
+
+
+/* ********************************************* */
+#message-container{
+    padding: 10px;
+    color:white;
+    background-color:  #1b65ea;
+    width: 40%;
+    height:0px;
+    opacity:0;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    transition: all 350ms ease-in;
+}
+
+#message-container.is-show{
+    opacity: 1;
+    height:25px;
+    
+}
+
+#message::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f007";
+    margin-right: 5px;
+  
+}
+
+#message .fas{
+    float:right;
+}
+
+.joueuses-en-jam{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-content: center;
+    background-color: gray;
+    padding:20px;
+    height:60px;
+}
+
+.joueuses-en-jam>.joueuse:nth-child(5){
+    background-color: yellow !important;
+}
+
+.joueuse{
+    padding:10px;
+    font-size: 1.2rem;
+    color:white;
+    width: 15%;
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: black;
+    display: flex;
+    position: relative;
+}
+
+
+.role-blocker{
+    background-color: green;
+}
+
+.role-jammer{
+    background-color: coral;
+}
+
+.liste-joueuses{
+    display: flex;
+    margin-top:30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.liste-joueuses .joueuse{
+    margin-top:10px;
+}
+
