@@ -6,9 +6,17 @@ var listeJoueuses = document.querySelector('.liste-joueuses');
 var affichageMessageDom = document.querySelector('.message');
 var containerMessageDom = document.querySelector('#message-container');
 var closeMessageIcon = document.querySelector('#message-container .fas');
+var btnValidation = document.querySelector('#btn-validation');
+
+localStorage.setItem('ligne', 'Tom');
+
+
+
+console.log(localStorage.getItem('monChat'));
 
 joueuses.forEach(function(joueuse) {
     joueuse.isOnJam = false;
+    joueuse.derbyName = joueuse.children[0].innerText;
     joueuse.addEventListener("click", function() {
         if(!joueuse.isOnJam){
             addJoueuseToJam(joueuse);
@@ -18,6 +26,20 @@ joueuses.forEach(function(joueuse) {
     });
 });
 
+function saveJoueuseOnJam(){
+    let playerOnJam = new Array();
+    joueuses.forEach(joueuse => {
+        if(joueuse.isOnJam){
+            playerOnJam.push({"player":joueuse});
+        }
+    });
+
+    localStorage.setItem("players",JSON.parse(JSON.stringify(playerOnJam)));
+    var test = JSON.parse(JSON.stringify(playerOnJam));
+    console.log(test);
+    console.log(localStorage.getItem("players"));
+}
+
 
 function addJoueuseToJam(joueuse){
     if(!isJamFull()){
@@ -26,21 +48,30 @@ function addJoueuseToJam(joueuse){
             joueuse.classList.add("blocker");
             joueuse.isOnJam = true;
             joueuse.role = "blocker";
+
+            if(isJammerFull()){
+                showValidate();
+            }
         }else{
             if(!isJammerFull()){
                 jammerOnJam.append(joueuse);
                 joueuse.classList.add("jammer");
                 joueuse.isOnJam = true;
                 joueuse.role = "jammer";
+                showValidate();
             }
         }    
     }else{
         printMessage("Nombres maximum de joueuses atteint");
     }
     
+    
 }
 
-function removeJoueuseFromJam(joueuse){  
+function removeJoueuseFromJam(joueuse){
+    if(isJamFull){
+        btnValidation.classList.remove("is-show");
+    }
     listeJoueuses.append(joueuse);
     joueuse.isOnJam = false;  
 }
@@ -72,4 +103,9 @@ function isJammerFull(){
 function printMessage(message){
     affichageMessageDom.innerText = message;
     containerMessageDom.classList.add('is-show');
+}
+
+function showValidate(){
+
+    saveJoueuseOnJam();
 }
