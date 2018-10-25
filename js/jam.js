@@ -26,18 +26,21 @@ joueuses.forEach(function(joueuse) {
     });
 });
 
+btnValidation.addEventListener('click',_ =>{
+    saveJoueuseOnJam();
+});
+
+
 function saveJoueuseOnJam(){
     let playerOnJam = new Array();
     joueuses.forEach(joueuse => {
         if(joueuse.isOnJam){
-            playerOnJam.push({"player":joueuse});
+            playerOnJam.push({"joueuse":joueuse});
         }
     });
 
-    localStorage.setItem("players",JSON.parse(JSON.stringify(playerOnJam)));
-    var test = JSON.parse(JSON.stringify(playerOnJam));
-    console.log(test);
-    console.log(localStorage.getItem("players"));
+    localStorage.setItem("players",JSON.stringify(playerOnJam));
+    console.log(JSON.parse(localStorage.getItem("players")));
 }
 
 
@@ -50,7 +53,7 @@ function addJoueuseToJam(joueuse){
             joueuse.role = "blocker";
 
             if(isJammerFull()){
-                showValidate();
+                toggleValidate("show");
             }
         }else{
             if(!isJammerFull()){
@@ -58,7 +61,7 @@ function addJoueuseToJam(joueuse){
                 joueuse.classList.add("jammer");
                 joueuse.isOnJam = true;
                 joueuse.role = "jammer";
-                showValidate();
+                toggleValidate("show");
             }
         }    
     }else{
@@ -70,7 +73,7 @@ function addJoueuseToJam(joueuse){
 
 function removeJoueuseFromJam(joueuse){
     if(isJamFull){
-        btnValidation.classList.remove("is-show");
+        toggleValidate("hide");
     }
     listeJoueuses.append(joueuse);
     joueuse.isOnJam = false;  
@@ -105,7 +108,14 @@ function printMessage(message){
     containerMessageDom.classList.add('is-show');
 }
 
-function showValidate(){
+function toggleValidate(statut){
+    if(statut === 'hide'){
+        btnValidation.classList.remove("is-show");
+        btnValidation.disabled = true;
+    }else{
+        btnValidation.classList.add("is-show");
+        btnValidation.disabled = false;
+    }
 
-    saveJoueuseOnJam();
+   
 }

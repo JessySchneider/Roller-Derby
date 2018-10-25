@@ -46,11 +46,19 @@ button:hover{
     transition:all 0.3s ease-in;
     width: 25%;
     font-size:1.1rem;
+    padding: 0;
+    cursor: inherit;
 }
 
 #btn-validation.is-show{
     opacity: 1;
     height:inherit;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#btn-validation:focus{
+    background-color: #38960d;
 }
 
 
