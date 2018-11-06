@@ -1,0 +1,151 @@
+.container-btn-validation{
+    display:flex;
+}
+
+#btn-validation{
+    opacity: 0;
+    height:0;
+    transition:all 0.3s ease-in;
+    width: 25%;
+    font-size:1.1rem;
+    padding: 0;
+    cursor: inherit;
+}
+
+#btn-validation.is-show{
+    opacity: 1;
+    height:inherit;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#btn-validation:focus{
+    background-color: #38960d;
+}
+
+
+#message-container{
+    padding: 10px;
+    color:white;
+    background-color:  #1b65ea;
+    width: 40%;
+    height:0px;
+    opacity:0;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    transition: all 350ms ease-in;
+}
+
+#message-container.is-show{
+    opacity: 1;
+    height:25px;
+    
+}
+
+#message::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f007";
+    margin-right: 5px;
+  
+}
+
+#message .fas{
+    float:right;
+}
+
+.title-role{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.title-role>h3{
+    margin: inherit;
+}
+
+.title-role>h3:nth-child(1){
+    background-color: red;
+    width: 80%;
+}
+.title-role>h3:nth-child(2){
+    background-color: blue;
+    width: 20%;
+}
+
+.joueuses-en-jam{
+    display: flex;
+    /* justify-content: center; */
+    width: 70%;
+    margin: 0 auto;
+    /* height:60px; */
+}
+
+.joueuses-en-jam>.container-blocker, .joueuses-en-jam>.container-jammer{
+    display: flex;
+
+}
+
+.joueuses-en-jam>.container-blocker{
+    background-color: rgba(77, 18, 18,0.3);
+    justify-content: space-around;
+    align-content: flex-start;
+    width: 80%;
+}
+
+.joueuses-en-jam>.container-blocker>.blocker{
+    background-color: rgb(77, 18, 18);
+    transition: all 0.3 ease-in;
+}
+
+.joueuses-en-jam>.container-blocker>.blocker:hover{
+    cursor:pointer;
+    background-color: rgb(48, 3, 3);
+
+}
+
+
+.joueuses-en-jam>.container-jammer{
+    background-color:rgba(21, 64, 184,0.3);
+    width: 20%;
+}
+
+.joueuses-en-jam>.container-jammer>.jammer{
+    background-color:rgb(21, 64, 184);
+    transition: all 0.3s ease-out;
+    width:100%;
+   
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+.joueuse{
+    padding:10px;
+    font-size: 1.2rem;
+    color:white;
+    position: relative;
+    text-align: center;
+}
+
+
+.liste-joueuses{
+    display: flex;
+    margin-top:30px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+.liste-joueuses .joueuse{
+    margin-top:10px;
+    width: 15%;
+    background-color:  rgb(54, 182, 22);
+    margin: 10px 5px;
+    transition: all 0.3s ease-in;
+}
+
+.liste-joueuses .joueuse:hover{
+    background-color: rgb(33, 124, 11);
+    cursor: pointer;
+}
