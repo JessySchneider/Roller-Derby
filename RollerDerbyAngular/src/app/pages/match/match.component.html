@@ -25,7 +25,7 @@
     
     <h2>Roster Équipe</h2>
     <div class="liste-joueuses">
-        <div *ngFor='let player of players' (click)="addPlayerToJam(player)" class="joueuse">
+        <div *ngFor='let player of listPlayers' (click)="addPlayerToJam(player)" class="joueuse">
             <div class="derby-name">
                 {{player.derbyName}}
             </div>

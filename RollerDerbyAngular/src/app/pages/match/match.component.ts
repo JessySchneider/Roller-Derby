@@ -8,21 +8,27 @@ import { Player } from 'src/app/model/player';
 })
 export class MatchComponent implements OnInit {
 
-  private players:Player[] = [];
+  private listPlayers:Player[] = [];
+  private ListplayerOnJam:Player[] = [];
+  
 
+  //ViewChild pour cibler l'element
+  //Render2 pour rendre l'element dans le DOM
+  //HostListener pour bind un evenement sur un element
+  //ElementRef a utilisé pour récuperer un element du DOM original ?
 
 
   constructor() { 
     let tmpPlayer = new Player(0,"Derby Name 1");
-    this.players.push(tmpPlayer);
+    this.listPlayers.push(tmpPlayer);
     tmpPlayer = new Player(1,"Derby Name 2");
-    this.players.push(tmpPlayer);
+    this.listPlayers.push(tmpPlayer);
     tmpPlayer = new Player(2,"Derby Name 3");
-    this.players.push(tmpPlayer);
+    this.listPlayers.push(tmpPlayer);
     tmpPlayer = new Player(3,"Derby Name 4");
-    this.players.push(tmpPlayer);
+    this.listPlayers.push(tmpPlayer);
     tmpPlayer = new Player(4,"Derby Name 5");
-    this.players.push(tmpPlayer);
+    this.listPlayers.push(tmpPlayer);
     
   }
 
