@@ -12,8 +12,12 @@
         <h3>Jammer</h3>
     </div>
     <div class="joueuses-en-jam">
-        <div class="container-blocker"></div>
-        <div class="container-jammer"></div>
+        <div class="container-blocker">
+
+        </div>
+        <div class="container-jammer">
+
+        </div>
     </div>
     <div class="container-btn-validation">
         <button id="btn-validation" disabled>Valider la ligne de joueuses</button>
@@ -21,79 +25,9 @@
     
     <h2>Roster Équipe</h2>
     <div class="liste-joueuses">
-        <div class="joueuse">
+        <div *ngFor='let player of players' (click)="addPlayerToJam(player)" class="joueuse">
             <div class="derby-name">
-                Derby name 1
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 2
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 3
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 4
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 5
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 6
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 7
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 8
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 9
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 10
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 11
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 12
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 13
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 14
-            </div>
-        </div>
-        <div class="joueuse">
-            <div class="derby-name">
-                Derby name 15
+                {{player.derbyName}}
             </div>
         </div>
     </div>
